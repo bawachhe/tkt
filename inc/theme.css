@@ -1,0 +1,253 @@
+@import url('font.css');
+
+/*
+
+Solarized hex vals:
+
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+*/
+
+* {
+	font-family: OpenSans;
+}
+
+html, body, table, span, div, input, textarea, select {
+	font-size: 14px;
+}
+
+html, body {
+	background-color: #000a0f;
+	/* background-image: url(/i/bg.jpg); */
+	background-repeat: repeat;
+	color: #eee8d5;
+}
+
+html {
+	overflow-x: hidden;
+	width: 99.42%;
+}
+
+b, strong, th {
+	font-family: OpenSansBold;
+	font-weight: normal;
+}
+
+i, em {
+	font-family: OpenSansItalic;
+	font-style: normal;
+}
+
+b i, b em, i b, i strong {
+	font-family: OpenSansBoldItalic;
+	font-style: normal;
+	font-weight: normal;
+}
+
+a, a:visited {
+	color: #268bd2;
+	margin: 1px;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #2aa198;
+	border: 1px solid #268bd2;
+	border-radius: 2px;
+	margin: 0;
+	text-decoration: none;
+	transition: border 500ms, border-radius 500ms, margin 500ms;
+}
+
+a.nostyle, a.nostyle:visited, a.nostyle:hover {
+	border: none;
+	border-radius: 0px;
+	color: #eee8d5;
+	margin: 0;
+	text-decoration: none;
+	transition: none;
+}
+
+hr {
+	border: 2px solid rgba(0,50,75,0.3);
+	height: 2px;
+	width: 100%;
+}
+
+form {
+	border: 1px solid #073642;
+	border-radius: 3px;
+	padding: 5px;
+	text-align: center;
+}
+
+input, select, textarea, button {
+	border: 1px solid #073642;
+	border-radius: 5px;
+	color: #FFF;
+}
+
+input {
+	padding: 8px;
+}
+
+select {
+	background-color: #002b36;
+	padding: 0;
+}
+
+textarea {
+	margin: 10px;
+	padding: 5px;
+}
+
+tab {
+	padding-left: 29px;
+}
+
+input[type=text], input[type=password], textarea {
+	background-color: #073642;
+}
+
+input[type=radio], input[type=checkbox] {
+	background-color: #073642;
+}
+
+input[type=button], input[type=submit], button {
+	background-color: #859900;
+	padding: 2px;
+}
+
+input[type=button]:active, input[type=submit]:active, button:active {
+	background-color: #b58900;
+	border-color: #586e75;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	font-size: 16px;
+}
+
+h1 {
+	font-size: 28px;
+	padding: 8px;
+}
+
+h2 {
+	font-size: 24px;
+	padding: 8px;
+}
+
+.clear {
+	clear: both;
+}
+
+.invisible {
+	margin: 1px;
+	visibility: hidden;
+}
+
+.w75 {
+	width: 75%;
+}
+
+.w25 {
+	width: 25%;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.ticketId {
+	display: inline-block;
+	font-variant: small-caps;
+}
+
+.subTickets {
+	border: 1px solid #073642;
+	border-radius: 3px;
+	margin-top: 10px;
+}
+
+.subTickets legend {
+	margin-left: -6px;
+}
+
+#addSubTickets {
+	margin-top: 15px;
+}
+
+div.edit span.field {
+	display: block;
+	min-height: 19px;
+	padding: 10px;
+	vertical-align: middle;
+	width: 100%;
+}
+
+div.edit span.field span[type=textarea], span.field textarea {
+	display: block;
+	min-height: 200px;
+	width: 90%;
+}
+
+div.edit span.val {
+	margin: 10px;
+	padding: 6px;
+}
+
+div.edit span.val:hover {
+	border: 1px solid #073642;
+	border-radius: 5px;
+	padding: 8px;
+	padding-right: 16px;
+	margin: 7px;
+	transition: border 500ms;
+}
+
+input#summary, span#summary {
+	font-family: OpenSansSemibold;
+	font-size: 28px;
+	width: 500px;
+}
+
+table#results td.res {
+	border: 1px solid #073642;
+	padding: 10px;
+}
+
+table#results th {
+	border-left: 1px solid #073642;
+	border-right: 1px solid #073642;
+}
+
+.hover {
+	background-color: rgba(0,50,75,0.2);
+}
+
+h3.group a {
+	color: #fdf6e3;
+}
