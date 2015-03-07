@@ -32,8 +32,7 @@ html, body, table, span, div, input, textarea, select {
 }
 
 html, body {
-	background-color: #000a0f;
-	/* background-image: url(/i/bg.jpg); */
+	background: linear-gradient(#000a0f, #000a1f);
 	background-repeat: repeat;
 	color: #eee8d5;
 }
@@ -240,7 +239,7 @@ table#results td.res {
 }
 
 table#results th {
-	border-left: 1px solid #073642;
+	border-bottom: 1px solid #073642;
 	border-right: 1px solid #073642;
 }
 
