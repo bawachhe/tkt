@@ -24,6 +24,15 @@ CREATE TABLE IF NOT EXISTS `importance` (
   `icon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `importance`
+--
+
+INSERT INTO `importance` (`id`, `name`, `value`, `icon`) VALUES
+(1, 'Critical', 10, 'critical.png'),
+(2, 'Major', 5, 'major.png'),
+(3, 'Minor', 3, 'minor.png');
+
 -- --------------------------------------------------------
 
 --
@@ -38,6 +47,18 @@ CREATE TABLE IF NOT EXISTS `project` (
   `editability` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `icon`, `visibility`, `editability`) VALUES
+(1, 'TKT', '', 0, 0),
+(2, 'Home', NULL, 0, 0),
+(3, 'Errands', NULL, 0, 0),
+(4, 'Work', NULL, 0, 0),
+(5, 'Social', NULL, 0, 0),
+(6, 'Health', NULL, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +69,15 @@ CREATE TABLE IF NOT EXISTS `role` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'Administrator'),
+(2, 'Moderator'),
+(3, 'ReadOnly');
 
 -- --------------------------------------------------------
 
@@ -61,6 +91,20 @@ CREATE TABLE IF NOT EXISTS `status` (
   `icon` varchar(255) DEFAULT NULL,
   `value` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `name`, `icon`, `value`) VALUES
+(1, 'Open', NULL, 1),
+(2, 'Analyzing', NULL, 5),
+(3, 'Ready', NULL, 10),
+(4, 'In Progress', NULL, 50),
+(5, 'On Hold', NULL, 30),
+(6, 'Reviewing', NULL, 70),
+(7, 'Tentatively Finished', NULL, 99),
+(8, 'Finished', NULL, 100);
 
 -- --------------------------------------------------------
 
@@ -94,6 +138,15 @@ CREATE TABLE IF NOT EXISTS `type` (
   `icon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `type`
+--
+
+INSERT INTO `type` (`id`, `name`, `icon`) VALUES
+(1, 'Epic', 'epic.png'),
+(2, 'Story', 'story.png'),
+(3, 'One-Off', 'oneoff.png');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +161,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `icon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `icon`) VALUES
+(1, 'admin', MD5('admin'), 'Administrator', NULL),
+(2, 'view', MD5('view'), 'Viewer', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +179,14 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `userId` int(11) NOT NULL,
   `roleId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`userId`, `roleId`) VALUES
+(1, 1),
+(2, 3);
 
 --
 -- Indexes for dumped tables
@@ -178,7 +247,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -193,7 +262,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `type`
 --
