@@ -173,6 +173,8 @@ while ($row = mysql_fetch_array($rs)) {
 		$parentEcho .= '</span> &rArr; ';
 
 		mysql_free_result($rs2);
+	} else {
+		$lastParentId = "";
 	}
 ?>
 
