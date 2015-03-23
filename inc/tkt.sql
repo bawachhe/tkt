@@ -77,7 +77,8 @@ CREATE TABLE IF NOT EXISTS `role` (
 INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'Administrator'),
 (2, 'Moderator'),
-(3, 'ReadOnly');
+(3, 'Standard User'),
+(4, 'ReadOnly');
 
 -- --------------------------------------------------------
 
@@ -252,7 +253,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `status`
 --

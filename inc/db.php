@@ -1,5 +1,5 @@
 <?
-mysql_connect("localhost", "root", "password");
+mysql_connect("localhost", "root", "");
 
 mysql_select_db("tkt");
 ?>

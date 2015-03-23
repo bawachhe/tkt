@@ -32,9 +32,10 @@ html, body, table, span, div, input, textarea, select {
 }
 
 html, body {
-	background: linear-gradient(#000a0f, #000a1f);
+	background-color: #000a0f;
 	background-repeat: repeat;
 	color: #eee8d5;
+	min-height: 100%;
 }
 
 html {
@@ -103,6 +104,7 @@ input, select, textarea, button {
 
 input {
 	padding: 8px;
+	margin: 5px;
 }
 
 select {
@@ -113,6 +115,10 @@ select {
 textarea {
 	margin: 10px;
 	padding: 5px;
+}
+
+ul, li {
+	list-style-type: none;
 }
 
 tab {
