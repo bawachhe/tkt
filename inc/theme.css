@@ -53,15 +53,17 @@ i, em {
 	font-style: normal;
 }
 
-b i, b em, i b, i strong {
+b i, b em, i b, i strong, strong i, strong em, em b, em strong {
 	font-family: OpenSansBoldItalic;
 	font-style: normal;
 	font-weight: normal;
 }
 
 a, a:visited {
+	border: 1px solid transparent;
+	border-radius: 2px;
 	color: #268bd2;
-	margin: 1px;
+	margin: 0;
 	text-decoration: none;
 }
 
@@ -69,9 +71,8 @@ a:hover {
 	color: #2aa198;
 	border: 1px solid #268bd2;
 	border-radius: 2px;
-	margin: 0;
 	text-decoration: none;
-	transition: border 500ms, border-radius 500ms, margin 500ms;
+	transition: border-width 500ms, border-color, 500ms, border-radius 500ms;
 }
 
 a.nostyle, a.nostyle:visited, a.nostyle:hover {
@@ -220,6 +221,8 @@ div.edit span.field span[type=textarea], span.field textarea {
 }
 
 div.edit span.val {
+	border: 1px solid transparent;
+	border-radius: 5px;
 	margin: 10px;
 	padding: 6px;
 }
@@ -229,7 +232,7 @@ div.edit span.val:hover {
 	border-radius: 5px;
 	padding: 8px;
 	padding-right: 16px;
-	margin: 7px;
+	margin: 8px;
 	transition: border 500ms;
 }
 
