@@ -26,7 +26,7 @@ session_start();
 			</td>
 			<td style="width: 33%; text-align:right;">
 				<? if (!isset($_SESSION['active']) || !$_SESSION['active']) { ?>
-					<a href="login.php">Login</a>
+					<a href="login.php?rdr=<?= $_SERVER['REQUEST_URI'] ?>">Login</a>
 				<? } else { ?>
 					<a href="newticket.php">New Ticket</a> &bull; 
 					<a href="login.php?out=true">Logout</a>

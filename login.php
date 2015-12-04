@@ -9,6 +9,12 @@
 <?
 session_start();
 
+$rdr = "index.php";
+
+if (isset($_GET['rdr'])) {
+	$rdr = $_GET['rdr'];
+}
+
 if (isset($_GET['out'])) {
 	$_SESSION['active'] = false;
 	$_SESSION['usn'] = "";
@@ -19,7 +25,7 @@ if (isset($_GET['out'])) {
 }
 
 if (isset($_SESSION['active'])) {
-	header("Location: index.php");
+	header("Location: $rdr");
 }
 
 if (isset($_POST['username'])) {
@@ -50,7 +56,7 @@ if (isset($_POST['username'])) {
 		$_SESSION['usn'] = $usn;
 		$_SESSION['role'] = $row['roleId'];
 
-		header("Location: index.php");
+		header("Location: $rdr");
 	}
 	else {
 		die("No such user!<script type='text/javascript'>setTimeout('window.location=\'/\';', 5000);</script>");
@@ -60,7 +66,7 @@ if (isset($_POST['username'])) {
 else {
 ?>
 
-<form method="post" action="login.php">
+<form method="post" action="login.php?rdr=<?= htmlspecialchars($rdr) ?>">
 	<input type="text" name="username" placeholder="username" /><br />
 	<input type="password" name="password" placeholder="password" /><br />
 	<input type="submit" value="Log In" />
