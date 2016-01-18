@@ -40,10 +40,10 @@ if (isset($_POST['username'])) {
 
 	$query = "select user_role.roleId as roleId from user inner join user_role on user.id = user_role.userId where username = '$usn' and password ='$psw';";
 
-	$rs = mysql_query($query) or die(mysql_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-	if (mysql_num_rows($rs) == 1) {
-		$row = mysql_fetch_array($rs);
+	if (mysqli_num_rows($rs) == 1) {
+		$row = mysqli_fetch_array($rs);
 
 		if ($row['roleId'] == 1) {
 			$_SESSION['canUpdate'] = true;

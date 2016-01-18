@@ -10,9 +10,9 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from type;";
 
-		$rs = mysql_query($query) or die(mysql_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-		while ($line = mysql_fetch_array($rs)) {
+		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
 
 			if (isset($_GET['type']) && ($_GET['type'] == $line['id'])) {
@@ -30,9 +30,9 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from importance;";
 
-		$rs = mysql_query($query) or die(mysql_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-		while ($line = mysql_fetch_array($rs)) {
+		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
 
 			if (isset($_GET['importance']) && ($_GET['importance'] == $line['id'])) {
@@ -50,9 +50,9 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from status;";
 
-		$rs = mysql_query($query) or die(mysql_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-		while ($line = mysql_fetch_array($rs)) {
+		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
 
 			if (isset($_GET['status']) && ($_GET['status'] == $line['id'])) {
@@ -70,9 +70,9 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from project;";
 
-		$rs = mysql_query($query) or die(mysql_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-		while ($line = mysql_fetch_array($rs)) {
+		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
 
 			if (isset($_GET['project']) && ($_GET['project'] == $line['id'])) {

@@ -12,7 +12,7 @@ $id = 0;
 if ($access && isset($_GET['unSub']) && isset($_GET['id'])) {
 	$query = "update ticket set parentId = 0 where id = " . $_GET['unSub'];
 
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($c, $query) or die(mysqli_error());
 
 	header("Location: ticket.php?id=" . $_GET['id']);
 }
@@ -20,7 +20,7 @@ if ($access && isset($_GET['unSub']) && isset($_GET['id'])) {
 if ($access && isset($_GET['unSuper']) && isset($_GET['id'])) {
 	$query = "update ticket set parentId = 0 where id = " . $_GET['id'];
 
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($c, $query) or die(mysqli_error());
 
 	header("Location: ticket.php?id=" . $_GET['id']);
 }
@@ -53,9 +53,9 @@ if (isset($_GET['id']) && $access) {
 				"where " .
 					"ticket.id = $id";
 
-	$rs = mysql_query($query) or die(mysql_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-	$row = mysql_fetch_array($rs);
+	$row = mysqli_fetch_array($rs);
 
 	$summary = html_entity_decode($row['ticketSummary'], ENT_QUOTES);
 	$projectName = html_entity_decode($row['projectName'], ENT_QUOTES);
@@ -103,9 +103,9 @@ if ($parentId != 0) {
 			"where " .
 				"ticket.id = $parentId";
 
-	$rs = mysql_query($query) or die(mysql_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-	$row = mysql_fetch_array($rs);
+	$row = mysqli_fetch_array($rs);
 
 	$parentEcho = '<div class="clear superTicket" id="superTicket">SuperTicket: <a href="ticket.php?id=' . $parentId . '"><span class="ticketId">' . $row['projectName'] . '-' . $parentId . '</span>: ' . $row['summary'] . '</a> <a href="ticket.php?id=' . $id . '&unSuper=1">x</a></div>';
 }
@@ -147,13 +147,13 @@ if ($access) {
 					"where " .
 						"ticket.parentId = " . $id;
 
-		$rs = mysql_query($query) or die(mysql_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-		if (mysql_num_rows($rs) > 0) {
+		if (mysqli_num_rows($rs) > 0) {
 		?>
 		<fieldset class="subTickets" id="subTickets"><legend>SubTickets</legend>
 			<?
-			while ($row = mysql_fetch_array($rs)) {
+			while ($row = mysqli_fetch_array($rs)) {
 			?>
 			<div class="clear"><a href="ticket.php?id=<?= $row['ticketId'] ?>"><?= $row['projectName'] ?>-<?= $row['ticketId'] ?>: <?= $row['summary'] ?></a> <a class="fr" href="ticket.php?id=<?= $id ?>&unSub=<?= $row['ticketId'] ?>">x</a></div>
 			<? } ?>

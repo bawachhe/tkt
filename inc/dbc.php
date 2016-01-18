@@ -1,3 +1,3 @@
 <?
-mysql_close();
+mysqli_close($c);
 ?>

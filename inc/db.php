@@ -1,5 +1,5 @@
 <?
-mysql_connect("localhost", "root", "");
+$c = mysqli_connect("localhost", "root", "");
 
-mysql_select_db("tkt");
+mysqli_select_db($c, "tkt");
 ?>

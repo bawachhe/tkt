@@ -25,7 +25,7 @@ if ($access && isset($_POST['summary'])) {
 					"'" . $description . "'" .
 				");";
 
-		mysql_query($query) or die(mysql_error());
+		mysqli_query($c, $query) or die(mysqli_error());
 	}
 	header("Location: index.php");
 }
@@ -42,9 +42,9 @@ if ($access) {
 					<?
 					$query = "select name, id from project";
 
-					$rs = mysql_query($query) or die(mysql_error());
+					$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-					while ($row = mysql_fetch_array($rs)) { ?>
+					while ($row = mysqli_fetch_array($rs)) { ?>
 						<option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
 					<? } ?>
 				</select>
@@ -54,9 +54,9 @@ if ($access) {
 					<?
 					$query = "select name, id from type";
 
-					$rs = mysql_query($query) or die(mysql_error());
+					$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-					while ($row = mysql_fetch_array($rs)) { ?>
+					while ($row = mysqli_fetch_array($rs)) { ?>
 						<option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
 					<? } ?>
 				</select>
@@ -66,9 +66,9 @@ if ($access) {
 					<?
 					$query = "select name, id from importance";
 
-					$rs = mysql_query($query) or die(mysql_error());
+					$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-					while ($row = mysql_fetch_array($rs)) { ?>
+					while ($row = mysqli_fetch_array($rs)) { ?>
 						<option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
 					<? } ?>
 				</select>

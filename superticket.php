@@ -15,14 +15,14 @@ $subTicketId = $_GET['subTicketId'];
 if (isset($_GET['superTicketId'])) {
 	$query = "update ticket set parentId = " . $_GET['superTicketId'] . " where id = " . $subTicketId;
 
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($c, $query) or die(mysqli_error());
 
 	$query = "select project.name as projectName, ticket.summary as ticketSummary from ticket " .
 			"inner join project on ticket.projectId = project.id where ticket.id = " . $subTicketId;
 
-	$rs = mysql_query($query) or die(mysql_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-	$row = mysql_fetch_array($rs);
+	$row = mysqli_fetch_array($rs);
 
 	echo '<script type="text/javascript">' .
 			'window.opener.setSuperTicket(\'' .
@@ -74,9 +74,9 @@ $query =	"select " .
 			"importance.value desc, " .
 			"ticket.id desc";
 
-$rs = mysql_query($query) or die(mysql_error());
+$rs = mysqli_query($c, $query) or die(mysqli_error());
 
-while ($row = mysql_fetch_array($rs)) {
+while ($row = mysqli_fetch_array($rs)) {
 ?>
 <tr>
 	<td onclick="window.location='superticket.php?subTicketId=<?= $subTicketId ?>&superTicketId=<?= $row['ticketId'] ?>'"><a href="superticket.php?subTicketId=<?= $subTicketId ?>&superTicketId=<?= $row['ticketId'] ?>"><span class="ticketId"><?= $row['projectName'] ?>-<?= $row['ticketId'] ?></span>: <?= $row['ticketSummary'] ?></a></td>
