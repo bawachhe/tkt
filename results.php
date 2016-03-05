@@ -1,6 +1,11 @@
 <?
-if (isset($_SESSION['active']) && $_SESSION['active']) {
-	include 'resultssearch.php';
+$level = 0;
+
+if (isset($_SESSION['level']) && ($_SESSION['level'] > 0)) {
+	$level = $_SESSION['level'];
+}
+
+include 'resultssearch.php';
 ?>
 
 <table id="results">
@@ -27,6 +32,8 @@ $status = "";
 $statusKeys = "";
 $project = "";
 $projectKeys = "";
+
+$levelKey = "project.visibility <= $level";
 
 if (isset($_GET['summaryKeys'])) {
 	$summaryKeys = "ticket.summary like '" . str_replace(" ", "%", $_GET['summaryKeys']) . "'";
@@ -112,6 +119,7 @@ $query =	"select " .
 		"inner join status on " .
 			"status.id = ticket.statusId " .
 		"where " .
+			$levelKey . $andor .
 			(isset($_GET['showall']) ? "" : "status.value < 100" . $andor) .
 			$summaryKeys . ($summaryKeys == "" ? "" : $andor) .
 			$type . ($type == "" ? "" : $andor) .
@@ -286,5 +294,3 @@ while ($row = mysqli_fetch_array($rs)) {
 		}
 	}
 </script>
-
-<? } ?>
