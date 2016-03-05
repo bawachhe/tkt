@@ -20,6 +20,7 @@ if (isset($_GET['out'])) {
 	$_SESSION['usn'] = "";
 	$_SESSION['role'] = "nobody";
 	$_SESSION['canUpdate'] = false;
+	$_SESSION['level'] = -1;
 
 	session_destroy();
 }
@@ -38,7 +39,7 @@ if (isset($_POST['username'])) {
 
 	var_dump($psw);
 
-	$query = "select user_role.roleId as roleId from user inner join user_role on user.id = user_role.userId where username = '$usn' and password ='$psw';";
+	$query = "select user_role.roleId as roleId, role.level as roleLevel from user inner join user_role on user.id = user_role.userId inner join role on user_role.roleId = role.id where username = '$usn' and password ='$psw';";
 
 	$rs = mysqli_query($c, $query) or die(mysqli_error());
 
@@ -55,6 +56,7 @@ if (isset($_POST['username'])) {
 		$_SESSION['active'] = true;
 		$_SESSION['usn'] = $usn;
 		$_SESSION['role'] = $row['roleId'];
+		$_SESSION['level'] = intval($row['roleLevel']);
 
 		header("Location: $rdr");
 	}

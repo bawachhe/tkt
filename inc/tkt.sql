@@ -52,12 +52,12 @@ CREATE TABLE IF NOT EXISTS `project` (
 --
 
 INSERT INTO `project` (`id`, `name`, `icon`, `visibility`, `editability`) VALUES
-(1, 'TKT', '', 0, 0),
-(2, 'Home', NULL, 0, 0),
-(3, 'Errands', NULL, 0, 0),
-(4, 'Work', NULL, 0, 0),
-(5, 'Social', NULL, 0, 0),
-(6, 'Health', NULL, 0, 0);
+(1, 'TKT', '', 0, 20),
+(2, 'Home', NULL, 20, 30),
+(3, 'Errands', NULL, 1, 20),
+(4, 'Work', NULL, 1, 20),
+(5, 'Social', NULL, 20, 50),
+(6, 'Health', NULL, 20, 50);
 
 -- --------------------------------------------------------
 
@@ -67,18 +67,19 @@ INSERT INTO `project` (`id`, `name`, `icon`, `visibility`, `editability`) VALUES
 
 CREATE TABLE IF NOT EXISTS `role` (
 `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `level` int(11) NOT NULL,
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `role`
 --
 
-INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'Administrator'),
-(2, 'Moderator'),
-(3, 'Standard User'),
-(4, 'ReadOnly');
+INSERT INTO `role` (`id`, `name`, `level`) VALUES
+(1, 'Administrator', 100),
+(2, 'Moderator', 80),
+(3, 'Standard User', 20),
+(4, 'ReadOnly', 1);
 
 -- --------------------------------------------------------
 
