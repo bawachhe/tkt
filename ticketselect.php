@@ -15,7 +15,7 @@ if (isset($_GET['field']) && isset($_SESSION['active']) && $_SESSION['active']) 
 
 	$query = "select id, name from $field;";
 
-	$rs = mysqli_query($c, $query) or die(mysqli_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 	while ($line = mysqli_fetch_array($rs)) {
 		echo '<option';

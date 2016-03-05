@@ -134,7 +134,7 @@ if (preg_match("/(and|or) order by/", $query)) {
 	$query = preg_replace("/(and|or) order by/", "order by", $query);
 }
 
-$rs = mysqli_query($c, $query) or die(mysqli_error());
+$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 $lastName = "";
 $lastParentId = "";
@@ -151,7 +151,7 @@ while ($row = mysqli_fetch_array($rs)) {
 				"where " .
 					"ticket.id = " . $row['parentId'];
 
-		$rs2 = mysqli_query($c, $query) or die(mysqli_error());
+		$rs2 = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		$row2 = mysqli_fetch_array($rs2);
 

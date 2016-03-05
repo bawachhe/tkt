@@ -15,12 +15,12 @@ $superTicketId = $_GET['superTicketId'];
 if (isset($_GET['subTicketId'])) {
 	$query = "update ticket set parentId = $superTicketId where id = " . $_GET['subTicketId'];
 
-	mysqli_query($c, $query) or die(mysqli_error());
+	mysqli_query($c, $query) or die(mysqli_error($c));
 
 	$query = "select project.name as projectName, ticket.summary as ticketSummary from ticket " .
 			"inner join project on ticket.projectId = project.id where ticket.id = " . $_GET['subTicketId'];
 
-	$rs = mysqli_query($c, $query) or die(mysqli_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 	$row = mysqli_fetch_array($rs);
 
@@ -74,7 +74,7 @@ $query =	"select " .
 			"importance.value desc, " .
 			"ticket.id desc";
 
-$rs = mysqli_query($c, $query) or die(mysqli_error());
+$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 while ($row = mysqli_fetch_array($rs)) {
 ?>

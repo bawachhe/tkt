@@ -10,7 +10,7 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from type;";
 
-		$rs = mysqli_query($c, $query) or die(mysqli_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
@@ -30,7 +30,7 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from importance;";
 
-		$rs = mysqli_query($c, $query) or die(mysqli_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
@@ -50,7 +50,7 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from status;";
 
-		$rs = mysqli_query($c, $query) or die(mysqli_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';
@@ -70,7 +70,7 @@ $_SESSION['search'] = $url;
 		<?
 		$query = "select id, name from project;";
 
-		$rs = mysqli_query($c, $query) or die(mysqli_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		while ($line = mysqli_fetch_array($rs)) {
 			echo '<option ';

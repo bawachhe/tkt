@@ -41,7 +41,7 @@ if (isset($_POST['username'])) {
 
 	$query = "select user_role.roleId as roleId, role.level as roleLevel from user inner join user_role on user.id = user_role.userId inner join role on user_role.roleId = role.id where username = '$usn' and password ='$psw';";
 
-	$rs = mysqli_query($c, $query) or die(mysqli_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 	if (mysqli_num_rows($rs) == 1) {
 		$row = mysqli_fetch_array($rs);

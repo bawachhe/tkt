@@ -39,7 +39,7 @@ if (isset($_POST['field']) && isset($_POST['ticketId']) && isset($_SESSION['acti
 
 		$query = "update ticket set " . $field . $fieldId . " = '$value' where ticket.id = $id;";
 
-		mysqli_query($c, $query) or die(mysqli_error());
+		mysqli_query($c, $query) or die(mysqli_error($c));
 	}
 	if (in_array($field, $selectFields)) {
 		$query2 =	"select " .
@@ -53,7 +53,7 @@ if (isset($_POST['field']) && isset($_POST['ticketId']) && isset($_SESSION['acti
 		$query2 = "select $field from ticket where ticket.id = $id;";
 	}
 
-	$rs = mysqli_query($c, $query2) or die(mysqli_error());
+	$rs = mysqli_query($c, $query2) or die(mysqli_error($c));
 
 	$row = mysqli_fetch_array($rs);
 

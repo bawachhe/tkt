@@ -12,7 +12,7 @@ $id = 0;
 if ($access && isset($_GET['unSub']) && isset($_GET['id'])) {
 	$query = "update ticket set parentId = 0 where id = " . $_GET['unSub'];
 
-	mysqli_query($c, $query) or die(mysqli_error());
+	mysqli_query($c, $query) or die(mysqli_error($c));
 
 	header("Location: ticket.php?id=" . $_GET['id']);
 }
@@ -20,7 +20,7 @@ if ($access && isset($_GET['unSub']) && isset($_GET['id'])) {
 if ($access && isset($_GET['unSuper']) && isset($_GET['id'])) {
 	$query = "update ticket set parentId = 0 where id = " . $_GET['id'];
 
-	mysqli_query($c, $query) or die(mysqli_error());
+	mysqli_query($c, $query) or die(mysqli_error($c));
 
 	header("Location: ticket.php?id=" . $_GET['id']);
 }
@@ -53,7 +53,7 @@ if (isset($_GET['id']) && $access) {
 				"where " .
 					"ticket.id = $id";
 
-	$rs = mysqli_query($c, $query) or die(mysqli_error());
+	$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 	$row = mysqli_fetch_array($rs);
 
@@ -147,7 +147,7 @@ if ($access) {
 					"where " .
 						"ticket.parentId = " . $id;
 
-		$rs = mysqli_query($c, $query) or die(mysqli_error());
+		$rs = mysqli_query($c, $query) or die(mysqli_error($c));
 
 		if (mysqli_num_rows($rs) > 0) {
 		?>
