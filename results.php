@@ -243,7 +243,7 @@ while ($row = mysqli_fetch_array($rs)) {
 
 			var val = element.val();
 
-			$.ajax({ 
+			$.ajax({
 				url: 'ticketupdate.php?ticketId=' + ticketId + '&field=' + id + '&val=' + val,
 				success: function(data) {
 					origElement.html(he.decode(data.name));
@@ -278,7 +278,7 @@ while ($row = mysqli_fetch_array($rs)) {
 				window.location = uri.replace(re, '$1' + key + "=" + value + '$2');
 			} else {
 				var hash =  '';
-				var separator = uri.indexOf('?') !== -1 ? "&" : "?";    
+				var separator = uri.indexOf('?') !== -1 ? "&" : "?";
 				if(uri.indexOf('#') !== -1) {
 					hash = uri.replace(/.*#/, '#');
 					uri = uri.replace(/#.*/, '');

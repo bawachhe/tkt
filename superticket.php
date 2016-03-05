@@ -5,7 +5,7 @@
 </style>
 </head>
 <body>
-<? 
+<?
 session_start();
 if (isset($_SESSION['active']) && $_SESSION['active']) {
 include 'inc/db.php';

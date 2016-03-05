@@ -37,7 +37,7 @@ if ($access) {
 	<div class="w75">
 		<form action="newticket.php" method="post">
 			<input name="summary" id="summary" type="text" />
-			<span class="field">Project: 
+			<span class="field">Project:
 				<select name="project" id="project">
 					<?
 					$query = "select name, id from project";

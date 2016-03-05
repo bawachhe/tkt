@@ -5,7 +5,7 @@ include "inc/dbc.php";
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('textarea').autosize();    
+		$('textarea').autosize();   
 	});
 </script>
 </html>

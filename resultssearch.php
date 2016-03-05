@@ -4,7 +4,7 @@ $_SESSION['search'] = $url;
 ?>
 <div style="text-align: right"><span id="srchToggle" onclick="toggle()" style="cursor: pointer; text-align: right">+ Expand Search Params</span></div>
 <div id="advSearch" style="display: none; margin: 10px 0; text-align: right">
-	Type: 
+	Type:
 	<select id="type" onchange="updateParam('<?= $url ?>', 'type',this.value);">
 		<option value="0"><?= isset($_GET['type']) ? "Clear Type" : "" ?></option>
 		<?
@@ -24,7 +24,7 @@ $_SESSION['search'] = $url;
 		?>
 	</select>
 
-	Importance: 
+	Importance:
 	<select id="importance" onchange="updateParam('<?= $url ?>', 'importance',this.value);">
 		<option value="0"><?= isset($_GET['importance']) ? "Clear Importance" : "" ?></option>
 		<?
@@ -44,7 +44,7 @@ $_SESSION['search'] = $url;
 		?>
 	</select>
 
-	Status: 
+	Status:
 	<select id="status" onchange="updateParam('<?= $url ?>', 'status',this.value);">
 		<option value="0"><?= isset($_GET['status']) ? "Clear Status" : "" ?></option>
 		<?
@@ -64,7 +64,7 @@ $_SESSION['search'] = $url;
 		?>
 	</select>
 
-	Project: 
+	Project:
 	<select id="project" onchange="updateParam('<?= $url ?>', 'project',this.value);">
 		<option value="0"><?= isset($_GET['project']) ? "Clear Project" : "" ?></option>
 		<?

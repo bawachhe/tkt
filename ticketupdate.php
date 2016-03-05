@@ -12,7 +12,7 @@ if (isset($_POST['field']) && isset($_POST['ticketId']) && isset($_SESSION['acti
 		$value = $_POST['val'];
 	}
 	else {
-		$value = ""; 
+		$value = "";
 	}
 
 	if ($_SESSION['canUpdate']) {
@@ -45,7 +45,7 @@ if (isset($_POST['field']) && isset($_POST['ticketId']) && isset($_SESSION['acti
 		$query2 =	"select " .
 					$field . ".name as " . $field . "name, " .
 					$field . ".id as " . $field . "id " .
-				"from ticket inner join $field on " . 
+				"from ticket inner join $field on " .
 					$field . ".id = ticket." . $field . "Id " .
 				"where ticket.id = $id;";
 	}
@@ -57,7 +57,7 @@ if (isset($_POST['field']) && isset($_POST['ticketId']) && isset($_SESSION['acti
 
 	$row = mysqli_fetch_array($rs);
 
-	if (in_array($field, $selectFields)) { 
+	if (in_array($field, $selectFields)) {
 		echo json_encode(array("name" => $row[$field . "name"], "val" => $row[$field . "id"]));
 	}
 	else {
