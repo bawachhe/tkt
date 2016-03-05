@@ -210,7 +210,6 @@ while ($row = mysqli_fetch_array($rs)) {
 
 <script type="text/javascript">
 	$(function() {
-
 		$("table#results").delegate('td.res','mouseover mouseleave', function(e) {
 			if (e.type == 'mouseover') {
 			  $(this).parent().addClass("hover");
@@ -220,7 +219,6 @@ while ($row = mysqli_fetch_array($rs)) {
 			  //$("colgroup").eq($(this).index()).removeClass("hover");
 			}
 		});
-
 	});
 
 	function setupUI(id, ticketId) {
