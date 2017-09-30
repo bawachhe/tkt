@@ -9,8 +9,8 @@ How to start:
 - Get a webserver running (I test on LAMP; Linux Apache MySQL PHP) that has MySQL and PHP
 - Create a database (default "tkt")
 - Import the tkt database (using inc/tkt.sql, command example "mysql -u root tkt < tkt.sql")
-- Adjust credentials and database name in inc/db.php (default localhost, with user "root" and password "password")
-- Set up your webserver with a php interpreter (needs php5-mysql[nd]) to point to the tkt folder you cloned/copied source to
+- Adjust credentials and database name in inc/db.php (default localhost, with user "root" and no password)
+- Set up your webserver with a php interpreter (needs php5-mysqli) to point to the tkt folder you cloned/copied source to
 - load your server on a browser
 - begin playing around
 
