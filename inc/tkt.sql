@@ -22,7 +22,19 @@ CREATE TABLE IF NOT EXISTS `importance` (
   `name` varchar(255) NOT NULL,
   `value` int(11) NOT NULL,
   `icon` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `importance`
+--
+ALTER TABLE `importance`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `importance`
+--
+ALTER TABLE `importance`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `importance`
@@ -45,7 +57,19 @@ CREATE TABLE IF NOT EXISTS `project` (
   `icon` varchar(255) DEFAULT NULL,
   `visibility` int(11) NOT NULL,
   `editability` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `project`
@@ -68,8 +92,20 @@ INSERT INTO `project` (`id`, `name`, `icon`, `visibility`, `editability`) VALUES
 CREATE TABLE IF NOT EXISTS `role` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `level` int(11) NOT NULL,
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `level` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `role`
@@ -92,7 +128,19 @@ CREATE TABLE IF NOT EXISTS `status` (
   `name` varchar(255) NOT NULL,
   `icon` varchar(255) DEFAULT NULL,
   `value` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `status`
@@ -118,15 +166,27 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 `id` int(11) NOT NULL,
   `projectId` int(11) NOT NULL,
   `parentId` int(11) DEFAULT NULL,
-  `typeId` int(11) NOT NULL,
-  `importanceId` int(11) NOT NULL,
+  `typeId` int(11) NOT NULL DEFAULT '3',
+  `importanceId` int(11) NOT NULL DEFAULT '1',
   `assigneeId` int(11) NOT NULL DEFAULT '1',
   `statusId` int(11) NOT NULL DEFAULT '1',
-  `summary` text NOT NULL,
+  `summary` text NOT NULL DEFAULT '',
   `description` text,
-  `visibility` int(11) NOT NULL,
-  `editability` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+  `visibility` int(11) NOT NULL DEFAULT '1',
+  `editability` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `ticket`
+--
+ALTER TABLE `ticket`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `ticket`
+--
+ALTER TABLE `ticket`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
 
@@ -138,7 +198,19 @@ CREATE TABLE IF NOT EXISTS `type` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `icon` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `type`
+--
+ALTER TABLE `type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `type`
+--
+ALTER TABLE `type`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `type`
@@ -161,7 +233,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL,
   `name` text NOT NULL,
   `icon` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Dumping data for table `user`
@@ -183,98 +267,15 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user_role`
+ ADD PRIMARY KEY (`userId`, `roleId`);
+
+--
 -- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`userId`, `roleId`) VALUES
 (1, 1),
 (2, 3);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `importance`
---
-ALTER TABLE `importance`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `project`
---
-ALTER TABLE `project`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `role`
---
-ALTER TABLE `role`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ticket`
---
-ALTER TABLE `ticket`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `type`
---
-ALTER TABLE `type`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `importance`
---
-ALTER TABLE `importance`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `project`
---
-ALTER TABLE `project`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `role`
---
-ALTER TABLE `role`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `ticket`
---
-ALTER TABLE `ticket`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT for table `type`
---
-ALTER TABLE `type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
